@@ -71,6 +71,7 @@ function SearchForm() {
           />
           <button
             type="submit"
+            aria-label="submit"
             className="rounded-r-md inline-flex  items-center px-3 border-t bg-white border-r border-b  border-gray-300 text-gray-500 shadow-sm text-sm"
           >
             <svg
