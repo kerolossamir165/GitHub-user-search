@@ -14,11 +14,11 @@ function Home() {
     }
   }, [history]);
   return (
-    <div>
+    <>
       <SearchForm />
       <SearchResult />
       <Pagination />
-    </div>
+    </>
   );
 }
 
