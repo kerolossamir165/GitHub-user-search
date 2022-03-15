@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Pagination from "../components/Pagination/Pagination";
 import SearchForm from "../components/Search/SearchForm";
