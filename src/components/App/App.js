@@ -10,6 +10,10 @@ import DataProvider from "../../context/contextProvider";
 import Profile from "../Profile/index";
 
 function App() {
+  React.useEffect(() => {
+    document.title = "GitHub User Search";
+  }, []);
+
   return (
     <DataProvider>
       <Router>
