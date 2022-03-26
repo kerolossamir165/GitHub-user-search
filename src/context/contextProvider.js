@@ -4,6 +4,7 @@ export let DataContext = createContext();
 
 function ContextProvider({ children }) {
   let [data, setData] = useState(null);
+  let [totalCount, setTotalCount] = useState(0);
   let [parts, setParts] = useState({});
   let [loading, setLoading] = useState(false);
   let [error, setError] = useState(null);
@@ -18,6 +19,8 @@ function ContextProvider({ children }) {
         setLoading,
         error,
         setError,
+        totalCount,
+        setTotalCount,
       }}
     >
       {children}

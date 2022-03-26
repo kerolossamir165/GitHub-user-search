@@ -9,6 +9,7 @@ import parser from "../../utils/parseLink";
 
 function PaginationLink({ url, rel, text, restdata }) {
   let { setData, setParts } = useContext(DataContext);
+  
   if (!url) {
     return null;
   }

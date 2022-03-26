@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../../../context/contextProvider";
 
 function SearchResult() {
-  let { data, loading, error } = useContext(DataContext);
+  let { data, loading, error, totalCount } = useContext(DataContext);
 
   if (loading) {
     return (
@@ -31,6 +31,7 @@ function SearchResult() {
   if (data) {
     return (
       <div className="w-[1140px] m-auto px-2">
+        <h1 className="text-3xl mb-5">Total Count Result : {totalCount}</h1>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
           {data &&
             data.map((el) => {
