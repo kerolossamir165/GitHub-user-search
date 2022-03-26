@@ -20,7 +20,9 @@ export let getData = async function (val, page) {
 function SearchForm() {
   let { setData, setParts, setLoading, setError, setTotalCount } =
     useContext(DataContext);
+
   let history = useHistory();
+  
   let handelSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,7 +36,7 @@ function SearchForm() {
 
       let res = await getData(query, 1);
       let parts = parser(res);
-      console.log(res);
+
       if (res.data?.items.length === 0) {
         setLoading(false);
         setParts({});
@@ -59,7 +61,7 @@ function SearchForm() {
         <form
           action=""
           onSubmit={handelSubmit}
-          className="pt-4 mb-4 flex justify-between items-center"
+          className="pt-3 mb-4 flex justify-between items-center"
         >
           <div className="flex-shrink-0 mb-2">
             <a href="https://github.com" className="block relative">
