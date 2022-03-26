@@ -9,7 +9,6 @@ function Home() {
   useEffect(() => {
     if (performance.navigation.type === 1) {
       console.log("This page is reloaded");
-
       history.push("/search");
     }
   }, [history]);

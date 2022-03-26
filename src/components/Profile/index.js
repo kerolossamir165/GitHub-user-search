@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link, useHistory } from "react-router-dom";
 import api from "../../Api/api";
 
-let getUset = async (pathname) => {
+let getUser = async (pathname) => {
   let user = await api.get("/users" + pathname);
-
   return { user: user.data };
 };
 
@@ -17,7 +16,7 @@ let Profile = () => {
   useEffect(() => {
     setLoading(true);
     setData(null);
-    getUset(pathname)
+    getUser(pathname)
       .then((res) => {
         setData(res.user);
         setLoading(false);

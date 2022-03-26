@@ -9,12 +9,11 @@ import parser from "../../utils/parseLink";
 
 function PaginationLink({ url, rel, text, restdata }) {
   let { setData, setParts } = useContext(DataContext);
-
   if (!url) {
     return null;
   }
   const search = getSearchQuery(url);
-  
+
   let handelClick = async () => {
     let res = await api.get("/search/users", {
       params: {
