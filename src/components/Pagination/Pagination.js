@@ -15,12 +15,12 @@ function Pagination() {
       {!loading && (
         <div className="flex justify-between  h-6 m-5">
           <div>
-            {parts.prev && (
+            {parts?.prev && (
               <NextOrPrev url={parts.prev} rel="prev" text="Prev" />
             )}
           </div>
           <div>
-            {parts.next && (
+            {parts?.next && (
               <NextOrPrev url={parts.next} rel="next" text="Next" />
             )}
           </div>

@@ -19,9 +19,7 @@ export let getData = async function (val, page) {
 
 function SearchForm() {
   let { setData, setParts, setLoading, setError } = useContext(DataContext);
-
   let history = useHistory();
-
   let handelSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -35,10 +33,16 @@ function SearchForm() {
 
       let res = await getData(query, 1);
       let parts = parser(res);
-      setData(res.data.items);
-      setParts(parts);
-      setLoading(false);
-      setError(null);
+      if (res.data?.items.length === 0) {
+        setLoading(false);
+        setParts({});
+        setError("There is no data");
+      } else {
+        setData(res.data?.items);
+        setParts(parts);
+        setLoading(false);
+        setError(null);
+      }
     } catch (error) {
       setError(error);
       setData(null);
