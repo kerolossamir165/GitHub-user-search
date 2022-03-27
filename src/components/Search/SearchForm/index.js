@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import api from "../../../Api/api";
 import parser from "../../../utils/parseLink";
-
 import { DataContext } from "../../../context/contextProvider";
 
 let PER_PAGE = 20;
