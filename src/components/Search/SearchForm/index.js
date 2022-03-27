@@ -7,13 +7,21 @@ import { DataContext } from "../../../context/contextProvider";
 let PER_PAGE = 20;
 
 export let getData = async function (val, page) {
-  return await api.get("/search/users", {
-    params: {
-      per_page: PER_PAGE,
-      q: val,
-      page: page,
-    },
-  });
+  try {
+    let result = await api.get("/search/users", {
+      params: {
+        per_page: PER_PAGE,
+        q: val,
+        page: page,
+      },
+    });
+    return result;
+  } catch (error) {
+    return {
+      error,
+      message: "can't make request",
+    };
+  }
 };
 
 function SearchForm() {
@@ -21,7 +29,7 @@ function SearchForm() {
     useContext(DataContext);
 
   let history = useHistory();
-  
+
   let handelSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -35,18 +43,11 @@ function SearchForm() {
 
       let res = await getData(query, 1);
       let parts = parser(res);
-
-      if (res.data?.items.length === 0) {
-        setLoading(false);
-        setParts({});
-        setError("There is no data");
-      } else {
-        setData(res.data?.items);
-        setTotalCount(res.data.total_count);
-        setParts(parts);
-        setLoading(false);
-        setError(null);
-      }
+      setData(res.data?.items);
+      setTotalCount(res.data.total_count);
+      setParts(parts);
+      setLoading(false);
+      setError(null);
     } catch (error) {
       setError(error);
       setData(null);
