@@ -13,6 +13,7 @@ let Profile = () => {
   let [data, setData] = useState(null);
   let [loading, setLoading] = useState(false);
   let [error, setError] = useState(null);
+  let history = useHistory();
 
   useEffect(() => {
     setLoading(true);
@@ -29,8 +30,6 @@ let Profile = () => {
         throw new Error(err);
       });
   }, [pathname]);
-
-  let history = useHistory();
 
   const goToPreviousPath = () => {
     history.goBack();
@@ -80,7 +79,7 @@ let Profile = () => {
               </div>
               <div className="flex mt-4 space-x-3 lg:mt-6">
                 <a
-                  href="https://github.com/linkkingjay"
+                  href={`https://github.com/${data.name}`}
                   className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   target="_blank"
                   rel="noreferrer"

@@ -42,7 +42,7 @@ function SearchForm() {
       });
 
       let res = await getData(query, 1);
-      let parts = parser(res);
+      let parts = parser(res); // extract the link from the header and generate object with next and prev 
       setData(res.data?.items);
       setTotalCount(res.data.total_count);
       setParts(parts);
